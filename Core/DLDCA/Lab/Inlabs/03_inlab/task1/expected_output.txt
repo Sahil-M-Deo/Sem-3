@@ -1,0 +1,599 @@
+VCD info: dumpfile task1.vcd opened for output.
+
+=== UNIT TEST: duration_datapath ===
+t=     0 | tick=0 | state=         remaining=  x | R=x G=x Y=x | ped=0 | request=x
+  idle, GREEN rem=20        | remaining_next=20 (exp 20) do_transition=0 (exp 0) | PASS
+  tick, GREEN rem=20->19    | remaining_next=19 (exp 19) do_transition=0 (exp 0) | PASS
+  last tick, GREEN->YELLOW  | remaining_next=5 (exp 5) do_transition=1 (exp 1) | PASS
+  last tick, YELLOW->RED ped=0 | remaining_next=30 (exp 30) | PASS
+  last tick, YELLOW->RED ped=1 | remaining_next=40 (exp 40) | PASS
+  last tick, RED->GREEN     | remaining_next=25 (exp 25) | PASS
+  button, GREEN rem=20      | remaining_next=10 (exp 10) | PASS
+  button, GREEN rem=6       | remaining_next=1 (exp 1) | PASS
+  button, GREEN, latched    | remaining_next=20 (exp 20) | PASS
+  button, RED rem=20        | remaining_next=30 (exp 30) | PASS
+
+=== UNIT TEST: output_decoder ===
+  RED    | R=1 G=0 Y=0 (exp 1 0 0) | PASS
+  GREEN  | R=0 G=1 Y=0 (exp 0 1 0) | PASS
+  YELLOW | R=0 G=0 Y=1 (exp 0 0 1) | PASS
+
+=== INTEGRATION TESTS: bhavesh_traffic_light ===
+t=    20 | tick=0 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+
+=== TEST 1: Reset -> GREEN ===
+	[ASSERT] er reset -> PASS
+
+=== TEST 2: GREEN = 25 ticks, ped=0 ===
+t=    75 | tick=1 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+t=    85 | tick=0 | state=  GREEN  remaining= 24 | R=0 G=1 Y=0 | ped=0 | request=0
+t=    95 | tick=1 | state=  GREEN  remaining= 24 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   105 | tick=0 | state=  GREEN  remaining= 23 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   115 | tick=1 | state=  GREEN  remaining= 23 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   125 | tick=0 | state=  GREEN  remaining= 22 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   135 | tick=1 | state=  GREEN  remaining= 22 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   145 | tick=0 | state=  GREEN  remaining= 21 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   155 | tick=1 | state=  GREEN  remaining= 21 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   165 | tick=0 | state=  GREEN  remaining= 20 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   175 | tick=1 | state=  GREEN  remaining= 20 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   185 | tick=0 | state=  GREEN  remaining= 19 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   195 | tick=1 | state=  GREEN  remaining= 19 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   205 | tick=0 | state=  GREEN  remaining= 18 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   215 | tick=1 | state=  GREEN  remaining= 18 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   225 | tick=0 | state=  GREEN  remaining= 17 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   235 | tick=1 | state=  GREEN  remaining= 17 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   245 | tick=0 | state=  GREEN  remaining= 16 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   255 | tick=1 | state=  GREEN  remaining= 16 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   265 | tick=0 | state=  GREEN  remaining= 15 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   275 | tick=1 | state=  GREEN  remaining= 15 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   285 | tick=0 | state=  GREEN  remaining= 14 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   295 | tick=1 | state=  GREEN  remaining= 14 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   305 | tick=0 | state=  GREEN  remaining= 13 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   315 | tick=1 | state=  GREEN  remaining= 13 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   325 | tick=0 | state=  GREEN  remaining= 12 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   335 | tick=1 | state=  GREEN  remaining= 12 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   345 | tick=0 | state=  GREEN  remaining= 11 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   355 | tick=1 | state=  GREEN  remaining= 11 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   365 | tick=0 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   375 | tick=1 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   385 | tick=0 | state=  GREEN  remaining=  9 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   395 | tick=1 | state=  GREEN  remaining=  9 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   405 | tick=0 | state=  GREEN  remaining=  8 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   415 | tick=1 | state=  GREEN  remaining=  8 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   425 | tick=0 | state=  GREEN  remaining=  7 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   435 | tick=1 | state=  GREEN  remaining=  7 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   445 | tick=0 | state=  GREEN  remaining=  6 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   455 | tick=1 | state=  GREEN  remaining=  6 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   465 | tick=0 | state=  GREEN  remaining=  5 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   475 | tick=1 | state=  GREEN  remaining=  5 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   485 | tick=0 | state=  GREEN  remaining=  4 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   495 | tick=1 | state=  GREEN  remaining=  4 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   505 | tick=0 | state=  GREEN  remaining=  3 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   515 | tick=1 | state=  GREEN  remaining=  3 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   525 | tick=0 | state=  GREEN  remaining=  2 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   535 | tick=1 | state=  GREEN  remaining=  2 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   545 | tick=0 | state=  GREEN  remaining=  1 | R=0 G=1 Y=0 | ped=0 | request=0
+	[ASSERT]  tick 24 -> PASS
+t=   565 | tick=1 | state=  GREEN  remaining=  1 | R=0 G=1 Y=0 | ped=0 | request=0
+t=   575 | tick=0 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=0
+	[ASSERT]  tick 25 -> PASS
+
+=== TEST 3: YELLOW = 5 ticks ===
+t=   595 | tick=1 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=0
+t=   605 | tick=0 | state=  YELLOW remaining=  4 | R=0 G=0 Y=1 | ped=0 | request=0
+t=   615 | tick=1 | state=  YELLOW remaining=  4 | R=0 G=0 Y=1 | ped=0 | request=0
+t=   625 | tick=0 | state=  YELLOW remaining=  3 | R=0 G=0 Y=1 | ped=0 | request=0
+t=   635 | tick=1 | state=  YELLOW remaining=  3 | R=0 G=0 Y=1 | ped=0 | request=0
+t=   645 | tick=0 | state=  YELLOW remaining=  2 | R=0 G=0 Y=1 | ped=0 | request=0
+t=   655 | tick=1 | state=  YELLOW remaining=  2 | R=0 G=0 Y=1 | ped=0 | request=0
+t=   665 | tick=0 | state=  YELLOW remaining=  1 | R=0 G=0 Y=1 | ped=0 | request=0
+	[ASSERT] @ tick 4 -> PASS
+t=   685 | tick=1 | state=  YELLOW remaining=  1 | R=0 G=0 Y=1 | ped=0 | request=0
+t=   695 | tick=0 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=0
+	[ASSERT] @ tick 5 -> PASS
+
+=== TEST 4: RED = 30 ticks, ped=0 ===
+t=   715 | tick=1 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   725 | tick=0 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   735 | tick=1 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   745 | tick=0 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   755 | tick=1 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   765 | tick=0 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   775 | tick=1 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   785 | tick=0 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   795 | tick=1 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   805 | tick=0 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   815 | tick=1 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   825 | tick=0 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   835 | tick=1 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   845 | tick=0 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   855 | tick=1 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   865 | tick=0 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   875 | tick=1 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   885 | tick=0 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   895 | tick=1 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   905 | tick=0 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   915 | tick=1 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   925 | tick=0 | state=  RED    remaining= 19 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   935 | tick=1 | state=  RED    remaining= 19 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   945 | tick=0 | state=  RED    remaining= 18 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   955 | tick=1 | state=  RED    remaining= 18 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   965 | tick=0 | state=  RED    remaining= 17 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   975 | tick=1 | state=  RED    remaining= 17 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   985 | tick=0 | state=  RED    remaining= 16 | R=1 G=0 Y=0 | ped=0 | request=0
+t=   995 | tick=1 | state=  RED    remaining= 16 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1005 | tick=0 | state=  RED    remaining= 15 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1015 | tick=1 | state=  RED    remaining= 15 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1025 | tick=0 | state=  RED    remaining= 14 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1035 | tick=1 | state=  RED    remaining= 14 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1045 | tick=0 | state=  RED    remaining= 13 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1055 | tick=1 | state=  RED    remaining= 13 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1065 | tick=0 | state=  RED    remaining= 12 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1075 | tick=1 | state=  RED    remaining= 12 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1085 | tick=0 | state=  RED    remaining= 11 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1095 | tick=1 | state=  RED    remaining= 11 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1105 | tick=0 | state=  RED    remaining= 10 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1115 | tick=1 | state=  RED    remaining= 10 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1125 | tick=0 | state=  RED    remaining=  9 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1135 | tick=1 | state=  RED    remaining=  9 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1145 | tick=0 | state=  RED    remaining=  8 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1155 | tick=1 | state=  RED    remaining=  8 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1165 | tick=0 | state=  RED    remaining=  7 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1175 | tick=1 | state=  RED    remaining=  7 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1185 | tick=0 | state=  RED    remaining=  6 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1195 | tick=1 | state=  RED    remaining=  6 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1205 | tick=0 | state=  RED    remaining=  5 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1215 | tick=1 | state=  RED    remaining=  5 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1225 | tick=0 | state=  RED    remaining=  4 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1235 | tick=1 | state=  RED    remaining=  4 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1245 | tick=0 | state=  RED    remaining=  3 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1255 | tick=1 | state=  RED    remaining=  3 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1265 | tick=0 | state=  RED    remaining=  2 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1275 | tick=1 | state=  RED    remaining=  2 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1285 | tick=0 | state=  RED    remaining=  1 | R=1 G=0 Y=0 | ped=0 | request=0
+	[ASSERT]  tick 29 -> PASS
+t=  1305 | tick=1 | state=  RED    remaining=  1 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  1315 | tick=0 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+	[ASSERT]  tick 30 -> PASS
+	[ASSERT] GREEN duration after unrequested RED -> PASS
+
+=== TEST 5: Pedestrian button during GREEN -> instant shrink by 10 ===
+t=  1335 | tick=1 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1345 | tick=0 | state=  GREEN  remaining= 24 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1355 | tick=1 | state=  GREEN  remaining= 24 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1365 | tick=0 | state=  GREEN  remaining= 23 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1375 | tick=1 | state=  GREEN  remaining= 23 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1385 | tick=0 | state=  GREEN  remaining= 22 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1395 | tick=1 | state=  GREEN  remaining= 22 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1405 | tick=0 | state=  GREEN  remaining= 21 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1415 | tick=1 | state=  GREEN  remaining= 21 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1425 | tick=0 | state=  GREEN  remaining= 20 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  1430 | tick=0 | state=  GREEN  remaining= 20 | R=0 G=1 Y=0 | ped=1 | request=0
+t=  1435 | tick=0 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=1 | request=1
+	[ASSERT] ped latch on GREEN press -> PASS
+	[ASSERT] instant shrink to 10 -> PASS
+
+=== TEST 6: GREEN counts down from shrunk value (10 ticks) ===
+t=  1440 | tick=0 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1445 | tick=1 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1455 | tick=0 | state=  GREEN  remaining=  9 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1465 | tick=1 | state=  GREEN  remaining=  9 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1475 | tick=0 | state=  GREEN  remaining=  8 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1485 | tick=1 | state=  GREEN  remaining=  8 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1495 | tick=0 | state=  GREEN  remaining=  7 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1505 | tick=1 | state=  GREEN  remaining=  7 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1515 | tick=0 | state=  GREEN  remaining=  6 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1525 | tick=1 | state=  GREEN  remaining=  6 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1535 | tick=0 | state=  GREEN  remaining=  5 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1545 | tick=1 | state=  GREEN  remaining=  5 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1555 | tick=0 | state=  GREEN  remaining=  4 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1565 | tick=1 | state=  GREEN  remaining=  4 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1575 | tick=0 | state=  GREEN  remaining=  3 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1585 | tick=1 | state=  GREEN  remaining=  3 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1595 | tick=0 | state=  GREEN  remaining=  2 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1605 | tick=1 | state=  GREEN  remaining=  2 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1615 | tick=0 | state=  GREEN  remaining=  1 | R=0 G=1 Y=0 | ped=0 | request=1
+	[ASSERT] t-shrink -> PASS
+t=  1635 | tick=1 | state=  GREEN  remaining=  1 | R=0 G=1 Y=0 | ped=0 | request=1
+t=  1645 | tick=0 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=1
+	[ASSERT] t-shrink -> PASS
+t=  1665 | tick=1 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1675 | tick=0 | state=  YELLOW remaining=  4 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1685 | tick=1 | state=  YELLOW remaining=  4 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1695 | tick=0 | state=  YELLOW remaining=  3 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1705 | tick=1 | state=  YELLOW remaining=  3 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1715 | tick=0 | state=  YELLOW remaining=  2 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1725 | tick=1 | state=  YELLOW remaining=  2 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1735 | tick=0 | state=  YELLOW remaining=  1 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1745 | tick=1 | state=  YELLOW remaining=  1 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  1755 | tick=0 | state=  RED    remaining= 40 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1765 | tick=1 | state=  RED    remaining= 40 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1775 | tick=0 | state=  RED    remaining= 39 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1785 | tick=1 | state=  RED    remaining= 39 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1795 | tick=0 | state=  RED    remaining= 38 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1805 | tick=1 | state=  RED    remaining= 38 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1815 | tick=0 | state=  RED    remaining= 37 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1825 | tick=1 | state=  RED    remaining= 37 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1835 | tick=0 | state=  RED    remaining= 36 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1845 | tick=1 | state=  RED    remaining= 36 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1855 | tick=0 | state=  RED    remaining= 35 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1865 | tick=1 | state=  RED    remaining= 35 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1875 | tick=0 | state=  RED    remaining= 34 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1885 | tick=1 | state=  RED    remaining= 34 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1895 | tick=0 | state=  RED    remaining= 33 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1905 | tick=1 | state=  RED    remaining= 33 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1915 | tick=0 | state=  RED    remaining= 32 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1925 | tick=1 | state=  RED    remaining= 32 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1935 | tick=0 | state=  RED    remaining= 31 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1945 | tick=1 | state=  RED    remaining= 31 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1955 | tick=0 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1965 | tick=1 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1975 | tick=0 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1985 | tick=1 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  1995 | tick=0 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2005 | tick=1 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2015 | tick=0 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2025 | tick=1 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2035 | tick=0 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2045 | tick=1 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2055 | tick=0 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2065 | tick=1 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2075 | tick=0 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2085 | tick=1 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2095 | tick=0 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2105 | tick=1 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2115 | tick=0 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2125 | tick=1 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2135 | tick=0 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2145 | tick=1 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2155 | tick=0 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2165 | tick=1 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2175 | tick=0 | state=  RED    remaining= 19 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2185 | tick=1 | state=  RED    remaining= 19 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2195 | tick=0 | state=  RED    remaining= 18 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2205 | tick=1 | state=  RED    remaining= 18 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2215 | tick=0 | state=  RED    remaining= 17 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2225 | tick=1 | state=  RED    remaining= 17 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2235 | tick=0 | state=  RED    remaining= 16 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2245 | tick=1 | state=  RED    remaining= 16 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2255 | tick=0 | state=  RED    remaining= 15 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2265 | tick=1 | state=  RED    remaining= 15 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2275 | tick=0 | state=  RED    remaining= 14 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2285 | tick=1 | state=  RED    remaining= 14 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2295 | tick=0 | state=  RED    remaining= 13 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2305 | tick=1 | state=  RED    remaining= 13 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2315 | tick=0 | state=  RED    remaining= 12 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2325 | tick=1 | state=  RED    remaining= 12 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2335 | tick=0 | state=  RED    remaining= 11 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2345 | tick=1 | state=  RED    remaining= 11 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2355 | tick=0 | state=  RED    remaining= 10 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2365 | tick=1 | state=  RED    remaining= 10 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2375 | tick=0 | state=  RED    remaining=  9 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2385 | tick=1 | state=  RED    remaining=  9 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2395 | tick=0 | state=  RED    remaining=  8 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2405 | tick=1 | state=  RED    remaining=  8 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2415 | tick=0 | state=  RED    remaining=  7 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2425 | tick=1 | state=  RED    remaining=  7 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2435 | tick=0 | state=  RED    remaining=  6 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2445 | tick=1 | state=  RED    remaining=  6 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2455 | tick=0 | state=  RED    remaining=  5 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2465 | tick=1 | state=  RED    remaining=  5 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2475 | tick=0 | state=  RED    remaining=  4 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2485 | tick=1 | state=  RED    remaining=  4 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2495 | tick=0 | state=  RED    remaining=  3 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2505 | tick=1 | state=  RED    remaining=  3 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2515 | tick=0 | state=  RED    remaining=  2 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2525 | tick=1 | state=  RED    remaining=  2 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2535 | tick=0 | state=  RED    remaining=  1 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2545 | tick=1 | state=  RED    remaining=  1 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  2555 | tick=0 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+	[ASSERT] sh GREEN -> PASS
+
+=== TEST 7: Pedestrian button during YELLOW -> latch request, RED=40 ===
+t=  2575 | tick=1 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2585 | tick=0 | state=  GREEN  remaining= 24 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2595 | tick=1 | state=  GREEN  remaining= 24 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2605 | tick=0 | state=  GREEN  remaining= 23 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2615 | tick=1 | state=  GREEN  remaining= 23 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2625 | tick=0 | state=  GREEN  remaining= 22 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2635 | tick=1 | state=  GREEN  remaining= 22 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2645 | tick=0 | state=  GREEN  remaining= 21 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2655 | tick=1 | state=  GREEN  remaining= 21 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2665 | tick=0 | state=  GREEN  remaining= 20 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2675 | tick=1 | state=  GREEN  remaining= 20 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2685 | tick=0 | state=  GREEN  remaining= 19 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2695 | tick=1 | state=  GREEN  remaining= 19 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2705 | tick=0 | state=  GREEN  remaining= 18 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2715 | tick=1 | state=  GREEN  remaining= 18 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2725 | tick=0 | state=  GREEN  remaining= 17 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2735 | tick=1 | state=  GREEN  remaining= 17 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2745 | tick=0 | state=  GREEN  remaining= 16 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2755 | tick=1 | state=  GREEN  remaining= 16 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2765 | tick=0 | state=  GREEN  remaining= 15 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2775 | tick=1 | state=  GREEN  remaining= 15 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2785 | tick=0 | state=  GREEN  remaining= 14 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2795 | tick=1 | state=  GREEN  remaining= 14 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2805 | tick=0 | state=  GREEN  remaining= 13 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2815 | tick=1 | state=  GREEN  remaining= 13 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2825 | tick=0 | state=  GREEN  remaining= 12 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2835 | tick=1 | state=  GREEN  remaining= 12 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2845 | tick=0 | state=  GREEN  remaining= 11 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2855 | tick=1 | state=  GREEN  remaining= 11 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2865 | tick=0 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2875 | tick=1 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2885 | tick=0 | state=  GREEN  remaining=  9 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2895 | tick=1 | state=  GREEN  remaining=  9 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2905 | tick=0 | state=  GREEN  remaining=  8 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2915 | tick=1 | state=  GREEN  remaining=  8 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2925 | tick=0 | state=  GREEN  remaining=  7 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2935 | tick=1 | state=  GREEN  remaining=  7 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2945 | tick=0 | state=  GREEN  remaining=  6 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2955 | tick=1 | state=  GREEN  remaining=  6 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2965 | tick=0 | state=  GREEN  remaining=  5 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2975 | tick=1 | state=  GREEN  remaining=  5 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2985 | tick=0 | state=  GREEN  remaining=  4 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  2995 | tick=1 | state=  GREEN  remaining=  4 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  3005 | tick=0 | state=  GREEN  remaining=  3 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  3015 | tick=1 | state=  GREEN  remaining=  3 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  3025 | tick=0 | state=  GREEN  remaining=  2 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  3035 | tick=1 | state=  GREEN  remaining=  2 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  3045 | tick=0 | state=  GREEN  remaining=  1 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  3055 | tick=1 | state=  GREEN  remaining=  1 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  3065 | tick=0 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=0
+	[ASSERT] > YELLOW -> PASS
+t=  3080 | tick=0 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=1 | request=0
+t=  3085 | tick=0 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=1 | request=1
+	[ASSERT] ped latch on YELLOW press -> PASS
+t=  3090 | tick=0 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3095 | tick=1 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3105 | tick=0 | state=  YELLOW remaining=  4 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3115 | tick=1 | state=  YELLOW remaining=  4 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3125 | tick=0 | state=  YELLOW remaining=  3 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3135 | tick=1 | state=  YELLOW remaining=  3 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3145 | tick=0 | state=  YELLOW remaining=  2 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3155 | tick=1 | state=  YELLOW remaining=  2 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3165 | tick=0 | state=  YELLOW remaining=  1 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3175 | tick=1 | state=  YELLOW remaining=  1 | R=0 G=0 Y=1 | ped=0 | request=1
+t=  3185 | tick=0 | state=  RED    remaining= 40 | R=1 G=0 Y=0 | ped=0 | request=1
+	[ASSERT] W -> RED -> PASS
+	[ASSERT] RED duration after YELLOW request -> PASS
+t=  3205 | tick=1 | state=  RED    remaining= 40 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3215 | tick=0 | state=  RED    remaining= 39 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3225 | tick=1 | state=  RED    remaining= 39 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3235 | tick=0 | state=  RED    remaining= 38 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3245 | tick=1 | state=  RED    remaining= 38 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3255 | tick=0 | state=  RED    remaining= 37 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3265 | tick=1 | state=  RED    remaining= 37 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3275 | tick=0 | state=  RED    remaining= 36 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3285 | tick=1 | state=  RED    remaining= 36 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3295 | tick=0 | state=  RED    remaining= 35 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3305 | tick=1 | state=  RED    remaining= 35 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3315 | tick=0 | state=  RED    remaining= 34 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3325 | tick=1 | state=  RED    remaining= 34 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3335 | tick=0 | state=  RED    remaining= 33 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3345 | tick=1 | state=  RED    remaining= 33 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3355 | tick=0 | state=  RED    remaining= 32 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3365 | tick=1 | state=  RED    remaining= 32 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3375 | tick=0 | state=  RED    remaining= 31 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3385 | tick=1 | state=  RED    remaining= 31 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3395 | tick=0 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3405 | tick=1 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3415 | tick=0 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3425 | tick=1 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3435 | tick=0 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3445 | tick=1 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3455 | tick=0 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3465 | tick=1 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3475 | tick=0 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3485 | tick=1 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3495 | tick=0 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3505 | tick=1 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3515 | tick=0 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3525 | tick=1 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3535 | tick=0 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3545 | tick=1 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3555 | tick=0 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3565 | tick=1 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3575 | tick=0 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3585 | tick=1 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3595 | tick=0 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3605 | tick=1 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3615 | tick=0 | state=  RED    remaining= 19 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3625 | tick=1 | state=  RED    remaining= 19 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3635 | tick=0 | state=  RED    remaining= 18 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3645 | tick=1 | state=  RED    remaining= 18 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3655 | tick=0 | state=  RED    remaining= 17 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3665 | tick=1 | state=  RED    remaining= 17 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3675 | tick=0 | state=  RED    remaining= 16 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3685 | tick=1 | state=  RED    remaining= 16 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3695 | tick=0 | state=  RED    remaining= 15 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3705 | tick=1 | state=  RED    remaining= 15 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3715 | tick=0 | state=  RED    remaining= 14 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3725 | tick=1 | state=  RED    remaining= 14 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3735 | tick=0 | state=  RED    remaining= 13 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3745 | tick=1 | state=  RED    remaining= 13 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3755 | tick=0 | state=  RED    remaining= 12 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3765 | tick=1 | state=  RED    remaining= 12 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3775 | tick=0 | state=  RED    remaining= 11 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3785 | tick=1 | state=  RED    remaining= 11 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3795 | tick=0 | state=  RED    remaining= 10 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3805 | tick=1 | state=  RED    remaining= 10 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3815 | tick=0 | state=  RED    remaining=  9 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3825 | tick=1 | state=  RED    remaining=  9 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3835 | tick=0 | state=  RED    remaining=  8 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3845 | tick=1 | state=  RED    remaining=  8 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3855 | tick=0 | state=  RED    remaining=  7 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3865 | tick=1 | state=  RED    remaining=  7 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3875 | tick=0 | state=  RED    remaining=  6 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3885 | tick=1 | state=  RED    remaining=  6 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3895 | tick=0 | state=  RED    remaining=  5 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3905 | tick=1 | state=  RED    remaining=  5 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3915 | tick=0 | state=  RED    remaining=  4 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3925 | tick=1 | state=  RED    remaining=  4 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3935 | tick=0 | state=  RED    remaining=  3 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3945 | tick=1 | state=  RED    remaining=  3 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3955 | tick=0 | state=  RED    remaining=  2 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3965 | tick=1 | state=  RED    remaining=  2 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3975 | tick=0 | state=  RED    remaining=  1 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  3985 | tick=1 | state=  RED    remaining=  1 | R=1 G=0 Y=0 | ped=0 | request=1
+
+=== TEST 8: Pedestrian button during RED -> instant extend by 10 ===
+t=  3995 | tick=0 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4005 | tick=1 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4015 | tick=0 | state=  GREEN  remaining= 24 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4025 | tick=1 | state=  GREEN  remaining= 24 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4035 | tick=0 | state=  GREEN  remaining= 23 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4045 | tick=1 | state=  GREEN  remaining= 23 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4055 | tick=0 | state=  GREEN  remaining= 22 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4065 | tick=1 | state=  GREEN  remaining= 22 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4075 | tick=0 | state=  GREEN  remaining= 21 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4085 | tick=1 | state=  GREEN  remaining= 21 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4095 | tick=0 | state=  GREEN  remaining= 20 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4105 | tick=1 | state=  GREEN  remaining= 20 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4115 | tick=0 | state=  GREEN  remaining= 19 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4125 | tick=1 | state=  GREEN  remaining= 19 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4135 | tick=0 | state=  GREEN  remaining= 18 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4145 | tick=1 | state=  GREEN  remaining= 18 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4155 | tick=0 | state=  GREEN  remaining= 17 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4165 | tick=1 | state=  GREEN  remaining= 17 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4175 | tick=0 | state=  GREEN  remaining= 16 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4185 | tick=1 | state=  GREEN  remaining= 16 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4195 | tick=0 | state=  GREEN  remaining= 15 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4205 | tick=1 | state=  GREEN  remaining= 15 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4215 | tick=0 | state=  GREEN  remaining= 14 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4225 | tick=1 | state=  GREEN  remaining= 14 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4235 | tick=0 | state=  GREEN  remaining= 13 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4245 | tick=1 | state=  GREEN  remaining= 13 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4255 | tick=0 | state=  GREEN  remaining= 12 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4265 | tick=1 | state=  GREEN  remaining= 12 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4275 | tick=0 | state=  GREEN  remaining= 11 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4285 | tick=1 | state=  GREEN  remaining= 11 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4295 | tick=0 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4305 | tick=1 | state=  GREEN  remaining= 10 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4315 | tick=0 | state=  GREEN  remaining=  9 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4325 | tick=1 | state=  GREEN  remaining=  9 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4335 | tick=0 | state=  GREEN  remaining=  8 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4345 | tick=1 | state=  GREEN  remaining=  8 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4355 | tick=0 | state=  GREEN  remaining=  7 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4365 | tick=1 | state=  GREEN  remaining=  7 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4375 | tick=0 | state=  GREEN  remaining=  6 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4385 | tick=1 | state=  GREEN  remaining=  6 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4395 | tick=0 | state=  GREEN  remaining=  5 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4405 | tick=1 | state=  GREEN  remaining=  5 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4415 | tick=0 | state=  GREEN  remaining=  4 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4425 | tick=1 | state=  GREEN  remaining=  4 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4435 | tick=0 | state=  GREEN  remaining=  3 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4445 | tick=1 | state=  GREEN  remaining=  3 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4455 | tick=0 | state=  GREEN  remaining=  2 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4465 | tick=1 | state=  GREEN  remaining=  2 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4475 | tick=0 | state=  GREEN  remaining=  1 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4485 | tick=1 | state=  GREEN  remaining=  1 | R=0 G=1 Y=0 | ped=0 | request=0
+t=  4495 | tick=0 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4505 | tick=1 | state=  YELLOW remaining=  5 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4515 | tick=0 | state=  YELLOW remaining=  4 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4525 | tick=1 | state=  YELLOW remaining=  4 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4535 | tick=0 | state=  YELLOW remaining=  3 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4545 | tick=1 | state=  YELLOW remaining=  3 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4555 | tick=0 | state=  YELLOW remaining=  2 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4565 | tick=1 | state=  YELLOW remaining=  2 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4575 | tick=0 | state=  YELLOW remaining=  1 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4585 | tick=1 | state=  YELLOW remaining=  1 | R=0 G=0 Y=1 | ped=0 | request=0
+t=  4595 | tick=0 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=0
+	[ASSERT] ered RED -> PASS
+t=  4615 | tick=1 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4625 | tick=0 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4635 | tick=1 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4645 | tick=0 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4655 | tick=1 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4665 | tick=0 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4675 | tick=1 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4685 | tick=0 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4695 | tick=1 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4705 | tick=0 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4715 | tick=1 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4725 | tick=0 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4735 | tick=1 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4745 | tick=0 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4755 | tick=1 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4765 | tick=0 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4775 | tick=1 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4785 | tick=0 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4795 | tick=1 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4805 | tick=0 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=0
+t=  4810 | tick=0 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=1 | request=0
+t=  4815 | tick=0 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=1 | request=1
+	[ASSERT] ped latch on RED press -> PASS
+	[ASSERT] instant RED extension to 30 -> PASS
+t=  4820 | tick=0 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4825 | tick=1 | state=  RED    remaining= 30 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4835 | tick=0 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4845 | tick=1 | state=  RED    remaining= 29 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4855 | tick=0 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4865 | tick=1 | state=  RED    remaining= 28 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4875 | tick=0 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4885 | tick=1 | state=  RED    remaining= 27 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4895 | tick=0 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4905 | tick=1 | state=  RED    remaining= 26 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4915 | tick=0 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4925 | tick=1 | state=  RED    remaining= 25 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4935 | tick=0 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4945 | tick=1 | state=  RED    remaining= 24 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4955 | tick=0 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4965 | tick=1 | state=  RED    remaining= 23 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4975 | tick=0 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4985 | tick=1 | state=  RED    remaining= 22 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  4995 | tick=0 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5005 | tick=1 | state=  RED    remaining= 21 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5015 | tick=0 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5025 | tick=1 | state=  RED    remaining= 20 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5035 | tick=0 | state=  RED    remaining= 19 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5045 | tick=1 | state=  RED    remaining= 19 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5055 | tick=0 | state=  RED    remaining= 18 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5065 | tick=1 | state=  RED    remaining= 18 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5075 | tick=0 | state=  RED    remaining= 17 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5085 | tick=1 | state=  RED    remaining= 17 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5095 | tick=0 | state=  RED    remaining= 16 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5105 | tick=1 | state=  RED    remaining= 16 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5115 | tick=0 | state=  RED    remaining= 15 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5125 | tick=1 | state=  RED    remaining= 15 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5135 | tick=0 | state=  RED    remaining= 14 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5145 | tick=1 | state=  RED    remaining= 14 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5155 | tick=0 | state=  RED    remaining= 13 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5165 | tick=1 | state=  RED    remaining= 13 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5175 | tick=0 | state=  RED    remaining= 12 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5185 | tick=1 | state=  RED    remaining= 12 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5195 | tick=0 | state=  RED    remaining= 11 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5205 | tick=1 | state=  RED    remaining= 11 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5215 | tick=0 | state=  RED    remaining= 10 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5225 | tick=1 | state=  RED    remaining= 10 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5235 | tick=0 | state=  RED    remaining=  9 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5245 | tick=1 | state=  RED    remaining=  9 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5255 | tick=0 | state=  RED    remaining=  8 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5265 | tick=1 | state=  RED    remaining=  8 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5275 | tick=0 | state=  RED    remaining=  7 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5285 | tick=1 | state=  RED    remaining=  7 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5295 | tick=0 | state=  RED    remaining=  6 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5305 | tick=1 | state=  RED    remaining=  6 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5315 | tick=0 | state=  RED    remaining=  5 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5325 | tick=1 | state=  RED    remaining=  5 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5335 | tick=0 | state=  RED    remaining=  4 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5345 | tick=1 | state=  RED    remaining=  4 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5355 | tick=0 | state=  RED    remaining=  3 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5365 | tick=1 | state=  RED    remaining=  3 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5375 | tick=0 | state=  RED    remaining=  2 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5385 | tick=1 | state=  RED    remaining=  2 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5395 | tick=0 | state=  RED    remaining=  1 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5405 | tick=1 | state=  RED    remaining=  1 | R=1 G=0 Y=0 | ped=0 | request=1
+t=  5415 | tick=0 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=0 | request=0
+	[ASSERT] -> GREEN -> PASS
+
+=== TEST 9: holding ped_button during GREEN only shrinks once ===
+t=  5430 | tick=0 | state=  GREEN  remaining= 25 | R=0 G=1 Y=0 | ped=1 | request=0
+t=  5435 | tick=0 | state=  GREEN  remaining= 15 | R=0 G=1 Y=0 | ped=1 | request=1
+	[ASSERT] shrink by 10 on first press (expected 15) -> PASS
+	[ASSERT] remaining stays at 15 while button held -> PASS
+
+=== All tests complete ===
+
+task1/tb_task1.v:367: $finish called at 5480 (1ns)
+t=  5480 | tick=0 | state=  GREEN  remaining= 15 | R=0 G=1 Y=0 | ped=0 | request=1

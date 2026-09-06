@@ -1,0 +1,77 @@
+VCD info: dumpfile labexam.vcd opened for output.
+
+======================================================
+SEQUENCE 1: 4 valid triples, no secrets
+Stream: 001 010 011 101
+Expected pairs out (valid cycles only): 00 01 10 11
+======================================================
+
+t_POSEDGE+1 | STATE AFTER EDGE | CURRENT INPUT | OUTPUTS AFTER EDGE
+-------------------------------------------------------------------------
+t=        6 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=       16 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=       26 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=       36 | READ             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=4
+t=       46 | READ             | triple=001    | pair=00 valid=1 | secret=000 secret_out=0 | done=0 | rem=3
+t=       56 | READ             | triple=010    | pair=01 valid=1 | secret=000 secret_out=0 | done=0 | rem=2
+t=       66 | READ             | triple=011    | pair=10 valid=1 | secret=000 secret_out=0 | done=0 | rem=1
+t=       76 | DONE             | triple=101    | pair=11 valid=1 | secret=000 secret_out=0 | done=0 | rem=0
+t=       86 | IDLE             | triple=101    | pair=00 valid=0 | secret=000 secret_out=0 | done=1 | rem=0
+
+======================================================
+SEQUENCE 2: 3 valid triples, 2 Jean injections
+Stream: 010 | 110 [secret:011] | 001 | 100 [secret:111] | 101
+Expected pairs out (valid cycles only): 01 00 11
+Expected final secret: 011 XOR 111 = 100
+======================================================
+
+t_POSEDGE+1 | STATE AFTER EDGE | CURRENT INPUT | OUTPUTS AFTER EDGE
+-------------------------------------------------------------------------
+t=       96 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      106 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      116 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      126 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      136 | READ             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=3
+t=      146 | READ             | triple=010    | pair=01 valid=1 | secret=000 secret_out=0 | done=0 | rem=2
+t=      156 | INTERCEPT        | triple=110    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=2
+t=      166 | READ             | triple=011    | pair=00 valid=0 | secret=011 secret_out=1 | done=0 | rem=2
+t=      176 | READ             | triple=001    | pair=00 valid=1 | secret=011 secret_out=0 | done=0 | rem=1
+t=      186 | INTERCEPT        | triple=100    | pair=00 valid=0 | secret=011 secret_out=0 | done=0 | rem=1
+t=      196 | READ             | triple=111    | pair=00 valid=0 | secret=100 secret_out=1 | done=0 | rem=1
+t=      206 | DONE             | triple=101    | pair=11 valid=1 | secret=100 secret_out=0 | done=0 | rem=0
+t=      216 | IDLE             | triple=101    | pair=00 valid=0 | secret=100 secret_out=0 | done=1 | rem=0
+
+======================================================
+SEQUENCE 3: consecutive injections, count=2
+Stream: 111 | 010 | 000 | 001 | 010 | 000 | 100 | 101
+Expected pairs (valid only): 01 11
+Expected final secret: 010 XOR 001 XOR 100 = 111
+Idle input before start and after DONE should be ignored.
+======================================================
+
+t_POSEDGE+1 | STATE AFTER EDGE | CURRENT INPUT | OUTPUTS AFTER EDGE
+-------------------------------------------------------------------------
+t=      226 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      236 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      246 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      256 | IDLE             | triple=000    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      266 | IDLE             | triple=111    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=0
+t=      276 | READ             | triple=111    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=2
+t=      286 | INTERCEPT        | triple=111    | pair=00 valid=0 | secret=000 secret_out=0 | done=0 | rem=2
+t=      296 | READ             | triple=010    | pair=00 valid=0 | secret=010 secret_out=1 | done=0 | rem=2
+t=      306 | INTERCEPT        | triple=000    | pair=00 valid=0 | secret=010 secret_out=0 | done=0 | rem=2
+t=      316 | READ             | triple=001    | pair=00 valid=0 | secret=011 secret_out=1 | done=0 | rem=2
+t=      326 | READ             | triple=010    | pair=01 valid=1 | secret=011 secret_out=0 | done=0 | rem=1
+t=      336 | INTERCEPT        | triple=000    | pair=00 valid=0 | secret=011 secret_out=0 | done=0 | rem=1
+t=      346 | READ             | triple=100    | pair=00 valid=0 | secret=111 secret_out=1 | done=0 | rem=1
+t=      356 | DONE             | triple=101    | pair=11 valid=1 | secret=111 secret_out=0 | done=0 | rem=0
+t=      366 | IDLE             | triple=111    | pair=00 valid=0 | secret=111 secret_out=0 | done=1 | rem=0
+t=      376 | IDLE             | triple=111    | pair=00 valid=0 | secret=111 secret_out=0 | done=0 | rem=0
+
+======================================================
+All sequences complete. Check pairs and secret above.
+To add your own sequence: copy a sequence block,
+call start_decoder(count), do_reset, send_triple() and finally wait 2 cycles.
+======================================================
+
+labexam/tb_labexam.v:242: $finish called at 385 (1ns)

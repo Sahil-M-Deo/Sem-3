@@ -1,0 +1,9 @@
+found after examining 3 nodes
+not found after examining 3 nodes
+found after examining 1 nodes
+not found after examining 3 nodes
+found after examining 3 nodes
+found after examining 3 nodes
+found after examining 3 nodes
+not found after examining 3 nodes
+not found after examining 3 nodes

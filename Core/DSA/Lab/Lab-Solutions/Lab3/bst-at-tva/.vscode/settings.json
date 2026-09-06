@@ -1,0 +1,19 @@
+{
+  "makefile.configureOnOpen": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.exclude": {
+    "**/a.out": true
+  },
+  "editor.minimap.enabled": true,
+  "editor.renderControlCharacters": true,
+  "editor.lineNumbers": "on",
+  "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": false,
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  }
+}

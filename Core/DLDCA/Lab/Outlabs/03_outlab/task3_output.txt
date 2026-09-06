@@ -1,0 +1,12 @@
+VCD info: dumpfile task3.vcd opened for output.
+=== TASK 3 TESTBENCH START ===
+$$$$$ TX_TEST: dst=0x12 src=0x34 payload=0x0123456789abcdef
+##### TX_OUTPUT: c2 69 55 79 34 aa 96 e7 ca 76 be b7 ce cb b9
+$$$$$ TX_TEST: dst=0xff src=0x00 payload=0xaaaaaaaaaaaaaaaa
+##### TX_OUTPUT: c7 7b ef 5a d6 b5 ad 6b 5a d6 b5 ad 6b 79 79
+$$$$$ RX_TEST: wire=c269557934aa96e7ca76beb7cecbb9
+##### RX_OUTPUT: frame_valid=1 dst=0x12 src=0x34 payload=0x0123456789abcdef
+$$$$$ RX_TEST: wire=c77bef5ad6b5ad6b5ad6b5ad6b7979
+##### RX_OUTPUT: frame_valid=1 dst=0xff src=0x00 payload=0xaaaaaaaaaaaaaaaa
+=== TASK 3 TESTBENCH END ===
+task3/tb_task3.v:204: $finish called at 7395 (1ns)

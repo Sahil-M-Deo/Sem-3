@@ -1,0 +1,241 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build OBJECTS = $(SOURCES",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "OBJECTS = $(SOURCES.cpp"
+      ],
+      "osx": {
+        "args": [
+          "OBJECTS = $(SOURCES.cpp",
+          "-g",
+          "-Wall",
+          "-std=c++20"
+        ]
+      },
+      "linux": {
+        "args": [
+          "OBJECTS = $(SOURCES.cpp",
+          "-g",
+          "-Wall",
+          "-std=c++20"
+        ]
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Run all OBJECTS = $(SOURCES tests",
+      "type": "shell",
+      "dependsOn": "Build OBJECTS = $(SOURCES",
+      "command": [
+        "clear; passed=0; failed=0;",
+        "GREEN='\\033[0;32m'; RED='\\033[0;31m'; NC='\\033[0m';",
+        "for t in 1:nested 2:nested 3:nested 4:nested 5:nested 6:nested 7:nested 8:nested 9:nested 10:nested; do",
+        "  i=${t%%:*}; fmt=${t##*:};",
+        "  if [ \"$fmt\" = \"flat\" ]; then in=tests/input$i.txt; out=tests/output$i.txt;",
+        "  else in=tests/test$i/input.txt; out=tests/test$i/output.txt; fi;",
+        "  ./a.out < $in > /tmp/OBJECTS = $(SOURCES_out.txt;",
+        "  if diff -Bw /tmp/OBJECTS = $(SOURCES_out.txt $out > /dev/null; then",
+        "    echo -e \"\\n===== Test $i (${GREEN}Passed${NC}) ====\";",
+        "    passed=$((passed+1));",
+        "  else",
+        "    echo -e \"\\n===== Test $i (${RED}Failed${NC}) ====\";",
+        "    echo \"--- Expected Output ---\";",
+        "    cat $out; echo;",
+        "    echo \"--- Your Output ---\";",
+        "    cat /tmp/OBJECTS = $(SOURCES_out.txt; echo;",
+        "    failed=$((failed+1));",
+        "  fi;",
+        "done;",
+        "echo \"======================\";",
+        "echo -e \"${GREEN}Passed: $passed${NC}\";",
+        "echo -e \"${RED}Failed: $failed${NC}\";"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build $(EXEC)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "$(EXEC).cpp"
+      ],
+      "osx": {
+        "args": [
+          "$(EXEC).cpp",
+          "-g",
+          "-Wall",
+          "-std=c++20"
+        ]
+      },
+      "linux": {
+        "args": [
+          "$(EXEC).cpp",
+          "-g",
+          "-Wall",
+          "-std=c++20"
+        ]
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Run all $(EXEC) tests",
+      "type": "shell",
+      "dependsOn": "Build $(EXEC)",
+      "command": [
+        "clear; passed=0; failed=0;",
+        "GREEN='\\033[0;32m'; RED='\\033[0;31m'; NC='\\033[0m';",
+        "for t in 1:nested 2:nested 3:nested 4:nested 5:nested 6:nested 7:nested 8:nested 9:nested 10:nested; do",
+        "  i=${t%%:*}; fmt=${t##*:};",
+        "  if [ \"$fmt\" = \"flat\" ]; then in=tests/input$i.txt; out=tests/output$i.txt;",
+        "  else in=tests/test$i/input.txt; out=tests/test$i/output.txt; fi;",
+        "  ./a.out < $in > /tmp/$(EXEC)_out.txt;",
+        "  if diff -Bw /tmp/$(EXEC)_out.txt $out > /dev/null; then",
+        "    echo -e \"\\n===== Test $i (${GREEN}Passed${NC}) ====\";",
+        "    passed=$((passed+1));",
+        "  else",
+        "    echo -e \"\\n===== Test $i (${RED}Failed${NC}) ====\";",
+        "    echo \"--- Expected Output ---\";",
+        "    cat $out; echo;",
+        "    echo \"--- Your Output ---\";",
+        "    cat /tmp/$(EXEC)_out.txt; echo;",
+        "    failed=$((failed+1));",
+        "  fi;",
+        "done;",
+        "echo \"======================\";",
+        "echo -e \"${GREEN}Passed: $passed${NC}\";",
+        "echo -e \"${RED}Failed: $failed${NC}\";"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build %.o",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "%.o.cpp"
+      ],
+      "osx": {
+        "args": [
+          "%.o.cpp",
+          "-g",
+          "-Wall",
+          "-std=c++20"
+        ]
+      },
+      "linux": {
+        "args": [
+          "%.o.cpp",
+          "-g",
+          "-Wall",
+          "-std=c++20"
+        ]
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Run all %.o tests",
+      "type": "shell",
+      "dependsOn": "Build %.o",
+      "command": [
+        "clear; passed=0; failed=0;",
+        "GREEN='\\033[0;32m'; RED='\\033[0;31m'; NC='\\033[0m';",
+        "for t in 1:nested 2:nested 3:nested 4:nested 5:nested 6:nested 7:nested 8:nested 9:nested 10:nested; do",
+        "  i=${t%%:*}; fmt=${t##*:};",
+        "  if [ \"$fmt\" = \"flat\" ]; then in=tests/input$i.txt; out=tests/output$i.txt;",
+        "  else in=tests/test$i/input.txt; out=tests/test$i/output.txt; fi;",
+        "  ./a.out < $in > /tmp/%.o_out.txt;",
+        "  if diff -Bw /tmp/%.o_out.txt $out > /dev/null; then",
+        "    echo -e \"\\n===== Test $i (${GREEN}Passed${NC}) ====\";",
+        "    passed=$((passed+1));",
+        "  else",
+        "    echo -e \"\\n===== Test $i (${RED}Failed${NC}) ====\";",
+        "    echo \"--- Expected Output ---\";",
+        "    cat $out; echo;",
+        "    echo \"--- Your Output ---\";",
+        "    cat /tmp/%.o_out.txt; echo;",
+        "    failed=$((failed+1));",
+        "  fi;",
+        "done;",
+        "echo \"======================\";",
+        "echo -e \"${GREEN}Passed: $passed${NC}\";",
+        "echo -e \"${RED}Failed: $failed${NC}\";"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build echo -e \"\\033[0;33mSKIPPED",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "echo -e \"\\033[0;33mSKIPPED.cpp"
+      ],
+      "osx": {
+        "args": [
+          "echo -e \"\\033[0;33mSKIPPED.cpp",
+          "-g",
+          "-Wall",
+          "-std=c++20"
+        ]
+      },
+      "linux": {
+        "args": [
+          "echo -e \"\\033[0;33mSKIPPED.cpp",
+          "-g",
+          "-Wall",
+          "-std=c++20"
+        ]
+      },
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Run all echo -e \"\\033[0;33mSKIPPED tests",
+      "type": "shell",
+      "dependsOn": "Build echo -e \"\\033[0;33mSKIPPED",
+      "command": [
+        "clear; passed=0; failed=0;",
+        "GREEN='\\033[0;32m'; RED='\\033[0;31m'; NC='\\033[0m';",
+        "for t in 1:nested 2:nested 3:nested 4:nested 5:nested 6:nested 7:nested 8:nested 9:nested 10:nested; do",
+        "  i=${t%%:*}; fmt=${t##*:};",
+        "  if [ \"$fmt\" = \"flat\" ]; then in=tests/input$i.txt; out=tests/output$i.txt;",
+        "  else in=tests/test$i/input.txt; out=tests/test$i/output.txt; fi;",
+        "  ./a.out < $in > /tmp/echo -e \"\\033[0;33mSKIPPED_out.txt;",
+        "  if diff -Bw /tmp/echo -e \"\\033[0;33mSKIPPED_out.txt $out > /dev/null; then",
+        "    echo -e \"\\n===== Test $i (${GREEN}Passed${NC}) ====\";",
+        "    passed=$((passed+1));",
+        "  else",
+        "    echo -e \"\\n===== Test $i (${RED}Failed${NC}) ====\";",
+        "    echo \"--- Expected Output ---\";",
+        "    cat $out; echo;",
+        "    echo \"--- Your Output ---\";",
+        "    cat /tmp/echo -e \"\\033[0;33mSKIPPED_out.txt; echo;",
+        "    failed=$((failed+1));",
+        "  fi;",
+        "done;",
+        "echo \"======================\";",
+        "echo -e \"${GREEN}Passed: $passed${NC}\";",
+        "echo -e \"${RED}Failed: $failed${NC}\";"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

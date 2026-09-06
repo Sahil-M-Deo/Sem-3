@@ -1,0 +1,344 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch %.o (Custom Input)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build %.o",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out"
+    },
+    {
+      "name": "Launch $(EXEC) (Custom Input)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build $(EXEC)",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out"
+    },
+    {
+      "name": "Launch OBJECTS = $(SOURCES (Custom Input)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build OBJECTS = $(SOURCES",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out"
+    },
+    {
+      "name": "Launch OBJECTS = $(SOURCES (test1)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build OBJECTS = $(SOURCES",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test1/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch OBJECTS = $(SOURCES (test2)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build OBJECTS = $(SOURCES",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test2/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch OBJECTS = $(SOURCES (test3)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build OBJECTS = $(SOURCES",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test3/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch OBJECTS = $(SOURCES (test4)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build OBJECTS = $(SOURCES",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test4/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch OBJECTS = $(SOURCES (test5)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build OBJECTS = $(SOURCES",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test5/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch OBJECTS = $(SOURCES (test6)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build OBJECTS = $(SOURCES",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test6/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch OBJECTS = $(SOURCES (test7)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build OBJECTS = $(SOURCES",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test7/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch $(EXEC) (test1)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build $(EXEC)",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test1/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch $(EXEC) (test2)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build $(EXEC)",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test2/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch $(EXEC) (test3)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build $(EXEC)",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test3/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch $(EXEC) (test4)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build $(EXEC)",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test4/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch $(EXEC) (test5)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build $(EXEC)",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test5/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch $(EXEC) (test6)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build $(EXEC)",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test6/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch $(EXEC) (test7)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build $(EXEC)",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test7/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch %.o (test1)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build %.o",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test1/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch %.o (test2)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build %.o",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test2/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch %.o (test3)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build %.o",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test3/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch %.o (test4)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build %.o",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test4/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch %.o (test5)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build %.o",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test5/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch %.o (test6)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build %.o",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test6/input.txt"
+        }
+      ]
+    },
+    {
+      "name": "Launch %.o (test7)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build %.o",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "args": [],
+      "setupCommands": [
+        {
+          "description": "Redirect input",
+          "text": "set args < tests/test7/input.txt"
+        }
+      ]
+    }
+  ]
+}

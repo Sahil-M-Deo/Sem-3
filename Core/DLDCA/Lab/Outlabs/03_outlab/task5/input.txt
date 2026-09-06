@@ -1,0 +1,28 @@
+# ==============================================================================
+# TOP-LEVEL COMMAND CONFIGURATION & CONSTRAINTS
+# ==============================================================================
+# Syntax Rules:
+#   - MAP <MACHINE> <PORT>
+#       * MACHINE: Single uppercase letter 'A'..'Z'
+#       * PORT   : Single port index 0, 1, 2, or 3
+#       * Effect : Assigns machine to a port. Re-mapping an existing machine 
+#                  or port clears previous bindings.
+#
+#   - SEND <SRC> <DST> <PAYLOAD>
+#       * SRC/DST : Unmapped machines or sending to oneself are disallowed.
+#       * PAYLOAD : Must be formatted in Hex ('0x...') or Binary ('0b...').
+#
+# Command Constraints:
+#   - Maximum allowed commands per run: 10
+#   - Total payload size: Exactly 64-bit payload (encapsulated into 120-bit wire frame)
+# ==============================================================================
+
+MAP A 0
+MAP B 1
+MAP C 2
+SEND A B 0xAABBCCDDEEFF0011
+SEND B A 0b1010101010101010101010101010101010101010101010101010101010101010
+MAP A 3  # Overrides machine A to port 3
+MAP D 1  # Overrides machine D to port 1
+SEND A C 0x1234567890ABCDEF
+SEND C D 0xFEDCBA9876543210

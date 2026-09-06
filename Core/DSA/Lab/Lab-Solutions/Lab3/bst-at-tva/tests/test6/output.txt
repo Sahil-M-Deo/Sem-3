@@ -1,0 +1,8 @@
+found after examining 1 nodes
+found after examining 2 nodes
+found after examining 5999 nodes
+found after examining 6000 nodes
+not found after examining 1 nodes
+not found after examining 2 nodes
+found after examining 1 nodes
+found after examining 6000 nodes

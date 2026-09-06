@@ -1,0 +1,21 @@
+found after examining 4 nodes
+found after examining 4 nodes
+found after examining 4 nodes
+found after examining 4 nodes
+not found after examining 3 nodes
+not found after examining 3 nodes
+found after examining 3 nodes
+found after examining 2 nodes
+not found after examining 3 nodes
+not found after examining 4 nodes
+found after examining 1 nodes
+not found after examining 1 nodes
+not found after examining 1 nodes
+found after examining 2 nodes
+found after examining 1 nodes
+not found after examining 2 nodes
+not found after examining 2 nodes
+found after examining 2 nodes
+found after examining 1 nodes
+not found after examining 2 nodes
+not found after examining 2 nodes

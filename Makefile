@@ -1,7 +1,7 @@
 # Makefile to clean LaTeX temporary files (only in current directory)
 
 # List of LaTeX temp file extensions to delete
-TEMP_EXTENSIONS = aux bbl blg log out synctex.gz fdb_latexmk
+TEMP_EXTENSIONS = aux bbl blg log out synctex.gz fdb_latexmk 
 
 .PHONY: clean
 all:
