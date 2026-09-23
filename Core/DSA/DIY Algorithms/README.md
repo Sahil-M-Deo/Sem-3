@@ -1,0 +1,1 @@
+This folder contains example codes for from-scratch implementation of algorithms covered in class which are completely human-written and hopefully relatable.
