@@ -13,5 +13,5 @@ while i < len(reader.pages)-1:
     if page[0][len(page[0]) - 1] != page_next[0][len(page_next[0]) - 1]:
         print_list.append(i+1)
     i+=1
-
+print_list.append(len(reader.pages))
 print(*print_list, sep=" ")
