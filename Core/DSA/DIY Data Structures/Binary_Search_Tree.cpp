@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "helper.h"
 using namespace std;
 struct node
 {
@@ -272,6 +273,7 @@ int main()
     for(int x:elements) {
         t.insert(x);
     }
+    visualise_binary(t.root);
 
     auto print_vec=[](const string &name, const vector<int> &v){
         cout<<name<<": ";
@@ -320,21 +322,25 @@ int main()
     cout << "Removing 20 (Leaf node)...\n";
     t.remove(20);
     print_vec("Inorder after removing 20", t.inorder(t.root));
+    visualise_binary(t.root);
 
     // Remove a node with one child
     cout << "\nRemoving 30 (Node with one child)...\n";
     t.remove(30);
     print_vec("Inorder after removing 30", t.inorder(t.root));
+    visualise_binary(t.root);
 
     // Remove a node with two children (the root)
     cout << "\nRemoving 70 (Node with two children)...\n";
     t.remove(70);
     print_vec("Inorder after removing 70", t.inorder(t.root));
+    visualise_binary(t.root);
 
     // Remove the root (which now has duplicate 50 as well)
     cout << "\nRemoving 50 (Root node)...\n";
     t.remove(50);
     print_vec("Inorder after removing 50", t.inorder(t.root));
     print_vec("Preorder after removing 50", t.preorder(t.root));
+    visualise_binary(t.root);
     return 0;
 }

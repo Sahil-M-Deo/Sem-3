@@ -1,1 +1,1 @@
-This folder contains example codes for from-scratch implementation of data structures covered in class which are completely human-written and hopefully relatable.
+This folder contains example codes for from-scratch implementation of data structures covered in class which are completely human-written and hopefully relatable. "helper.h" has visualiser functions for Red Black trees, Binary trees and 2-3-4 trees.
